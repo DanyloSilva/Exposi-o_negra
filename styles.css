@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #000000, #2e0034);
+  background-size: cover;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+.carta {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cartas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.frente, .verso {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.frente {
+  background-image: url('img/carta.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.verso {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7); /* Cor de fundo mais escura */
+}
+
+.carta.virada .frente {
+  transform: rotateY(180deg);
+}
+
+.carta.virada .verso {
+  transform: rotateY(0deg);
+}
+
+.imagem-verso {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carta:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.indicacao-cultura {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+}
+
+.mensagem-maquina-escrever {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid white;
+  white-space: nowrap;
+  font-size: 30px;
+  animation: typing 3s steps(50, end) forwards;
+}
+
+
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.imagem {
+  width: 500px;
+}
+/* Seus estilos existentes */
+
